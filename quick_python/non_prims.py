@@ -1,5 +1,5 @@
 """Operations on non primitives such as List, Tuple and Dictionary"""
-from typing import TypeVar
+from typing import TypeVar, Union, Any
 
 T = TypeVar("T")
 
@@ -26,9 +26,11 @@ class ListOperations:
         a.insert(n, value)
         return a
 
-    def list_pop(self, a: list[T]) -> list[T]:
+    def list_pop(self, a: list[T]) -> T:
         return a.pop()
 
-    def list_splice(self, a: list[T], start: int, end: int, b: list[T]) -> list[T]:
+    def list_splice(
+        self, a: Union[list[T], list[Any]], start: int, end: int, b: list[T]
+    ) -> list[T]:
         a[start:end] = b
         return a
