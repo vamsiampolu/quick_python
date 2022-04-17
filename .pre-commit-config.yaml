@@ -11,3 +11,13 @@ repos:
     rev: 22.3.0
     hooks:
     -   id: black
+
+-   repo: local
+    hooks:
+    -   id: mypy
+        name: mypy
+        entry: ./ci/mypy.sh
+        language: python
+        additional_dependencies: ["mypy"]
+        require_serial: true
+        verbose: true
