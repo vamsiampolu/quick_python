@@ -46,3 +46,29 @@ class StringOperations:
 
     def slice_only_end(self, a: str, end: int) -> str:
         return a[:end]
+
+    # get the lowest index of a string using str.find(sub)
+    # find takes start and end indices like slice
+    def str_find(self, a: str, b: str) -> int:
+        return a.find(b)
+
+    # exactly like find but raises a ValueError if substring is not found
+    # index takes start and end indices like slice
+    def str_index(self, a: str, b: str) -> int:
+        return a.index(b)
+
+    def cast_to_string(self, a) -> str:
+        return str(a)
+
+    # There are method to strip whitespace from only end of the string:
+    # rstrip and lstrip
+    def strip_whitespace(self, a: str) -> str:
+        # if a string only consists of spaces, the condition will be True
+        if a.isspace():
+            return ''
+        else:
+            return a.strip()
+
+    def str_split(self, a: str, sub: str) -> list[str]:
+        return a.split(sub)
+

@@ -18,6 +18,12 @@ class TestAddIntegers:
     def test_add_neg(self):
         assert subject.add(3, -1) == 2
 
+    def test_add_both_neg(self):
+        assert subject.add(-3, -2) == -5
+
+    def test_add_both_zero(self):
+        assert subject.add(0, 0) == 0
+
 
 # Integer substraction tests:
 class TestSubstractIntegers:
@@ -139,3 +145,44 @@ Rules"""
         assert str_subject.slice_only_end(data, -1) == "tangerin"
         assert str_subject.slice_only_end(data, 0) == ""
         assert str_subject.slice_only_end(data, 4) == "tang"
+
+    def test_str_find_non_existant_sub_string(self):
+        assert str_subject.str_find('tangerine', 'mandarin') == -1
+
+    def test_str_find_sub_string(self):
+        assert str_subject.str_find('tangerine', 'anger') == 1
+
+    def test_find_entire_string(self):
+        assert str_subject.str_find('tangerine', 'tangerine') == 0
+
+    def test_str_index_non_existant_sub_string(self):
+        with pytest.raises(ValueError): 
+            assert str_subject.str_index('tangerine', 'grape')
+
+    def test_str_index_sub_string(self):
+        assert str_subject.str_index('tangerine', 'anger') == 1
+
+    def test_find_entire_string(self):
+        assert str_subject.str_index('tangerine', 'tangerine') == 0
+
+    def test_cast_to_string(self):
+        assert str_subject.cast_to_string(None) == 'None'
+        assert str_subject.cast_to_string(True) == 'True'
+        assert str_subject.cast_to_string(1) == '1'
+        assert str_subject.cast_to_string(3.5) == '3.5'
+
+    def test_strip_whitespace_when_string_has_only_spaces(self):
+        assert str_subject.strip_whitespace('     ') == ''
+
+    def test_strip_whitespace_with_string_that_has_trailing_spaces(self):
+        assert str_subject.strip_whitespace('foo bar  ') == 'foo bar'
+        assert str_subject.strip_whitespace('  foo bar ') == 'foo bar'
+
+    def test_str_split_where_substring_does_not_exist(self):
+        assert str_subject.str_split('belly up', ',') == ['belly up']
+
+    def test_str_split_where_substring_is_last_char(self):
+        assert str_subject.str_split('any method,', ',') == ['any method', '']
+
+    def test_str_split_with_substring(self):
+        assert str_subject.str_split('37, 41, 43, 47, 53, 59', ', ') == ['37', '41', '43', '47', '53', '59']
