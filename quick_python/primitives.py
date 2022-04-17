@@ -1,4 +1,5 @@
 """Operations on integer and string primitives"""
+from typing import Union, Any
 
 
 class IntegerOperations:
@@ -16,6 +17,34 @@ class IntegerOperations:
 
     def mod(self, a: int, b: int) -> int:
         return a % b
+
+    def cast_to_int(self, a: str) -> int:
+        return int(a)
+
+    def exponentiation(
+        self, base: int, exponent: Union[int, float]
+    ) -> Union[float, Any]:
+        return base**exponent
+
+
+class FloatOperations:
+    def add(self, a: float, b: float) -> float:
+        return a + b
+
+    def sub(self, a: float, b: float) -> float:
+        return a - b
+
+    def mul(self, a: float, b: float) -> float:
+        return a * b
+
+    def div(self, a: float, b: float) -> float:
+        return a / b
+
+    def mod(self, a: float, b: float) -> float:
+        return a % b
+
+    def cast_to_float(self, a: str) -> float:
+        return float(a)
 
 
 class StringOperations:
@@ -65,10 +94,17 @@ class StringOperations:
     def strip_whitespace(self, a: str) -> str:
         # if a string only consists of spaces, the condition will be True
         if a.isspace():
-            return ''
+            return ""
         else:
             return a.strip()
 
     def str_split(self, a: str, sub: str) -> list[str]:
         return a.split(sub)
 
+
+class BoolOperators:
+    def is_truthy(self, a: Any):
+        if a:
+            return True
+        else:
+            return False
