@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "quick_python"
+version = "0.1.0"
+description = ""
+authors = ["Vamsi Ampolu <vamsiampolu3000@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+black = "^22.3.0"
+pylint = "^2.13.5"
+mypy = "^0.942"
+
+[tool.poetry.scripts]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
