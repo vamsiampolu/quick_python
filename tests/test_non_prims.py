@@ -1,3 +1,4 @@
+import pytest
 from quick_python.non_prims import ListOperations
 
 lsub = ListOperations()
@@ -33,3 +34,18 @@ class TestListOperations:
     def test_insert_element(self):
         data = [1]
         assert lsub.list_insert_at_index(data, 0, 2) == [2, 1]
+
+    def test_list_pop_on_empty_list(self):
+        with pytest.raises(IndexError):
+            assert lsub.list_pop([])
+
+    def test_list_pop_on_list(self):
+        data = [1, 2, 3, 4]
+        assert lsub.list_pop(data) == 4
+        assert data == [1, 2, 3]
+
+    def test_splice_empty_list(self):
+        assert lsub.list_splice([], 0, 1, [1, 2, 3]) == [1, 2, 3]
+
+    def test_splice_with_list(self):
+        assert lsub.list_splice([1, 2, 3], 0, 1, [4, 5]) == [4, 5, 2, 3]

@@ -25,3 +25,10 @@ class ListOperations:
     def list_insert_at_index(self, a: list[T], n: int, value: T) -> list[T]:
         a.insert(n, value)
         return a
+
+    def list_pop(self, a: list[T]) -> list[T]:
+        return a.pop()
+
+    def list_splice(self, a: list[T], start: int, end: int, b: list[T]) -> list[T]:
+        a[start:end] = b
+        return a
