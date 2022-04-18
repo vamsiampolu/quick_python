@@ -1,6 +1,5 @@
 import pytest
 from quick_python.non_prims import ListOperations, TupleOperations, DictOperations
-from collections.abc import KeysView, ValuesView
 
 lsub = ListOperations()
 tsub = TupleOperations()
@@ -114,7 +113,7 @@ class TestDictOperations:
         assert dsub.create_from_tuples([("a", 1), ("b", 2)]) == {"a": 1, "b": 2}
 
     def test_keys(self):
-        assert dsub.get_keys(data) == KeysView(["a", "c"])
+        assert list(dsub.get_keys(data)) == ["a", "c"]
 
     # dict.values returns an Iterable, list acts on an Iterable
     # and converts it to a list.

@@ -1,6 +1,5 @@
 """Operations on non primitives such as List, Tuple and Dictionary"""
 from typing import TypeVar, Union, Any, Optional, Iterable
-from collections.abc import KeysView
 
 T = TypeVar("T")
 K = TypeVar("K")
@@ -74,7 +73,7 @@ class DictOperations:
         return dict(pairs)
 
     # this is a live list, this list should update whenever a key is added or removed from the dictionary.
-    def get_keys(self, data: dict[K, V]) -> KeysView:
+    def get_keys(self, data: dict[K, V]) -> Iterable[K]:
         return data.keys()
 
     def get_values(self, data: dict[K, V]) -> Iterable[V]:
