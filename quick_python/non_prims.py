@@ -78,3 +78,6 @@ class DictOperations:
 
     def get_values(self, data: dict[K, V]) -> Iterable[V]:
         return data.values()
+
+    def remove_key(self, data: dict[K, V], key: K) -> None:
+        del data[key]

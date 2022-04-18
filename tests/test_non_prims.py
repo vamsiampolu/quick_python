@@ -120,3 +120,13 @@ class TestDictOperations:
     # Reference: https://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Iterables.html
     def test_values(self):
         assert list(dsub.get_values(data)) == [1, 3]
+
+    def test_remove_key_from_dictionary(self):
+        data_copy = data.copy()
+        assert dsub.remove_key(data_copy, "a") == None
+        assert data_copy == {"c": 3}
+
+    def test_remove_non_existant_key_from_dictionary(self):
+        data_copy = data.copy()
+        with pytest.raises(KeyError):
+            dsub.remove_key(data_copy, "q")
