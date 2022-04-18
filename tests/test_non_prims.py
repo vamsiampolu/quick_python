@@ -170,3 +170,23 @@ class TestSetOperations:
     def test_has_item_in_set(self):
         assert set_sub.has(set_data, "kate") == True
         assert set_sub.has(set_data, "jenna") == False
+
+    def test_set_union_should_have_all_items(self):
+        data_a = set([1, 2, 3])
+        data_b = set([3, 5, 7, 2])
+        assert set_sub.union(data_a, data_b) == set([1, 2, 3, 5, 7, 2])
+
+    def test_add_item_that_already_exists_to_set(self):
+        set_data_copy = set_data.copy()
+        set_sub.add_item(set_data_copy, "kate")
+        assert set_data_copy == set_data
+
+    def test_add_new_item_to_set(self):
+        set_data_copy = set_data.copy()
+        set_sub.add_item(set_data_copy, "marie")
+        assert set_data_copy == set(["angie", "laura", "kate", "bella", "marie"])
+
+    def test_add_multiple_values_to_set(self):
+        set_data_copy = set_data.copy()
+        set_sub.add_items(set_data_copy, ["kate", "angie", "jessica"])
+        assert set_data_copy == set(["angie", "laura", "kate", "bella", "jessica"])

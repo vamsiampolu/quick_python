@@ -92,3 +92,17 @@ class SetOperations:
 
     def has(self, data: set[T], value: T) -> bool:
         return value in data
+
+    def add_item(self, data: set[T], value: T) -> set[T]:
+        data.add(value)
+        return data
+
+    def add_items(self, data: set[T], values: list[T]) -> set[T]:
+        data.update(values)
+        return data
+
+    """return a set with items from one or both of the sets"""
+
+    def union(self, data_a: set[T], data_b: set[T]) -> set[T]:
+        # can also be written as data_a.union(data_b)
+        return data_a | data_b
