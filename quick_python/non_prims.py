@@ -84,3 +84,11 @@ class DictOperations:
 
     def capture_named_args(self, **kwargs):
         return kwargs
+
+
+class SetOperations:
+    def create(self, data: list[T]) -> set[T]:
+        return set(data)
+
+    def has(self, data: set[T], value: T) -> bool:
+        return value in data

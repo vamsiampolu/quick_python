@@ -1,9 +1,15 @@
 import pytest
-from quick_python.non_prims import ListOperations, TupleOperations, DictOperations
+from quick_python.non_prims import (
+    ListOperations,
+    TupleOperations,
+    DictOperations,
+    SetOperations,
+)
 
 lsub = ListOperations()
 tsub = TupleOperations()
 dsub = DictOperations()
+set_sub = SetOperations()
 
 
 class TestListOperations:
@@ -143,3 +149,24 @@ class TestDictOperations:
             "last_name": "Bourne",
             "location": "London",
         }
+
+
+set_data = set(["angie", "laura", "kate", "bella"])
+
+
+class TestSetOperations:
+    def test_create_set_using_list(self):
+        assert set_sub.create(
+            ["angie", "laura", "kate", "bella", "laura", "kate"]
+        ) == set(
+            [
+                "angie",
+                "laura",
+                "kate",
+                "bella",
+            ]
+        )
+
+    def test_has_item_in_set(self):
+        assert set_sub.has(set_data, "kate") == True
+        assert set_sub.has(set_data, "jenna") == False
