@@ -81,3 +81,6 @@ class DictOperations:
 
     def remove_key(self, data: dict[K, V], key: K) -> None:
         del data[key]
+
+    def capture_named_args(self, **kwargs):
+        return kwargs

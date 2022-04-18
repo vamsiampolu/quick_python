@@ -121,6 +121,9 @@ class TestDictOperations:
     def test_values(self):
         assert list(dsub.get_values(data)) == [1, 3]
 
+    # when a function does not explicitly return None, asserting
+    # that the return value is None does not work. mypy or pytest will
+    # fail the test (I hope it's the former)
     def test_remove_key_from_dictionary(self):
         data_copy = data.copy()
         dsub.remove_key(data_copy, "a")
@@ -130,3 +133,13 @@ class TestDictOperations:
         data_copy = data.copy()
         with pytest.raises(KeyError):
             dsub.remove_key(data_copy, "q")
+
+    def test_capture_named_args(self):
+        captured = dsub.capture_named_args(
+            first_name="Jason", last_name="Bourne", location="London"
+        )
+        assert captured == {
+            "first_name": "Jason",
+            "last_name": "Bourne",
+            "location": "London",
+        }
