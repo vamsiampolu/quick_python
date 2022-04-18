@@ -1,5 +1,5 @@
 """Operations on non primitives such as List, Tuple and Dictionary"""
-from typing import TypeVar, Union, Any, Optional
+from typing import TypeVar, Union, Any, Optional, Iterable
 from collections.abc import KeysView
 
 T = TypeVar("T")
@@ -73,6 +73,9 @@ class DictOperations:
     def create_from_tuples(self, pairs: list[tuple[K, V]]) -> dict[K, V]:
         return dict(pairs)
 
-    # no clue what the mypy type for this would be. dict_keys is the python type but does not exist in mypy.
+    # this is a live list, this list should update whenever a key is added or removed from the dictionary.
     def get_keys(self, data: dict[K, V]) -> KeysView:
         return data.keys()
+
+    def get_values(self, data: dict[K, V]) -> Iterable[V]:
+        return data.values()
