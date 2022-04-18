@@ -101,8 +101,19 @@ class SetOperations:
         data.update(values)
         return data
 
+    def set_length(self, data: set[T]) -> int:
+        return len(data)
+
     """return a set with items from one or both of the sets"""
 
     def union(self, data_a: set[T], data_b: set[T]) -> set[T]:
         # can also be written as data_a.union(data_b)
         return data_a | data_b
+
+    def intersection(self, data_a: set[T], data_b: set[T]) -> set[T]:
+        # can also be written as data_a.intersection(data_b)
+        return data_a & data_b
+
+    def difference(self, data_a: set[T], data_b: set[T]) -> set[T]:
+        # can also be written as data_a.difference(data_b)
+        return data_a - data_b
