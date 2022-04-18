@@ -123,7 +123,7 @@ class TestDictOperations:
 
     def test_remove_key_from_dictionary(self):
         data_copy = data.copy()
-        assert dsub.remove_key(data_copy, "a") == None
+        dsub.remove_key(data_copy, "a")
         assert data_copy == {"c": 3}
 
     def test_remove_non_existant_key_from_dictionary(self):
