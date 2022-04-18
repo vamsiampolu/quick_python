@@ -120,3 +120,10 @@ class SetOperations:
 
     def symmetric_difference(self, data_a: set[T], data_b: set[T]) -> set[T]:
         return data_a ^ data_b
+
+    def is_subset(self, data_a: set[T], data_b: set[T]) -> bool:
+        # return data_a.issubset(data_b)
+        return data_a <= data_b
+
+    def is_superset(self, data_a: set[T], data_b: set[T]) -> bool:
+        return data_a >= data_b

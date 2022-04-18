@@ -209,3 +209,23 @@ class TestSetOperations:
         data_a = set([1, 2, 3])
         data_b = set([3, 5, 7, 2])
         assert set_sub.symmetric_difference(data_a, data_b) == set([1, 5, 7])
+
+    def test_a_is_not_subset_of_b(self):
+        data_a = set([1, 2, 3])
+        data_b = set([1, 3, 5, 7, 2])
+        assert set_sub.is_subset(data_b, data_a) == False
+
+    def test_a_is_subset_of_b(self):
+        data_a = set([1, 2, 3])
+        data_b = set([1, 3, 5, 7, 2])
+        assert set_sub.is_subset(data_a, data_b) == True
+
+    def test_a_is_superset_of_b(self):
+        data_a = set([1, 2, 3])
+        data_b = set([1, 3, 5, 7, 2])
+        assert set_sub.is_superset(data_b, data_a) == True
+
+    def test_a_is_not_superset_of_b(self):
+        data_a = set([1, 2, 3])
+        data_b = set([1, 3, 5, 7, 2])
+        assert set_sub.is_superset(data_a, data_b) == False
