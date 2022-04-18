@@ -117,3 +117,6 @@ class SetOperations:
     def difference(self, data_a: set[T], data_b: set[T]) -> set[T]:
         # can also be written as data_a.difference(data_b)
         return data_a - data_b
+
+    def symmetric_difference(self, data_a: set[T], data_b: set[T]) -> set[T]:
+        return data_a ^ data_b

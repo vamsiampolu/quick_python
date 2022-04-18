@@ -204,3 +204,8 @@ class TestSetOperations:
 
     def test_length_of_set(self):
         assert set_sub.set_length(set_data) == 4
+
+    def test_symmetric_difference_must_exclude_all_values_in_both(self):
+        data_a = set([1, 2, 3])
+        data_b = set([3, 5, 7, 2])
+        assert set_sub.symmetric_difference(data_a, data_b) == set([1, 5, 7])
