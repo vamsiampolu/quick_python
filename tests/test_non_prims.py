@@ -1,7 +1,8 @@
 import pytest
-from quick_python.non_prims import ListOperations
+from quick_python.non_prims import ListOperations, TupleOperations
 
 lsub = ListOperations()
+tsub = TupleOperations()
 
 
 class TestListOperations:
@@ -65,3 +66,11 @@ class TestListOperations:
             "hi",
             "hey there",
         ]
+
+
+class TestTupleOperations:
+    def test_empty_tuple(self):
+        assert tsub.empty_tuple() == ()
+
+    def test_tuple_with_single_element(self):
+        assert tsub.create_unary_tuple("fire") == ("fire",)

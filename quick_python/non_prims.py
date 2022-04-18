@@ -40,3 +40,11 @@ class ListOperations:
 
     def repeat_list(self, arr: list[T], times: int) -> list[T]:
         return arr * times
+
+
+class TupleOperations:
+    def empty_tuple(self):
+        return ()
+
+    def create_unary_tuple(self, t: T) -> tuple[T]:
+        return (t,)
