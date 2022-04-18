@@ -49,3 +49,19 @@ class TestListOperations:
 
     def test_splice_with_list(self):
         assert lsub.list_splice([1, 2, 3], 0, 1, [4, 5]) == [4, 5, 2, 3]
+
+    def test_repeat_element(self):
+        assert lsub.repeat_value("money", 3) == ["money", "money", "money"]
+
+    def test_repeat_list(self):
+        assert lsub.repeat_list(["hello", "hi", "hey there"], 3) == [
+            "hello",
+            "hi",
+            "hey there",
+            "hello",
+            "hi",
+            "hey there",
+            "hello",
+            "hi",
+            "hey there",
+        ]

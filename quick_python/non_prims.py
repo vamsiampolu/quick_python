@@ -34,3 +34,9 @@ class ListOperations:
     ) -> list[T]:
         a[start:end] = b
         return a
+
+    def repeat_value(self, n: T, times: int) -> list[T]:
+        return [n] * times
+
+    def repeat_list(self, arr: list[T], times: int) -> list[T]:
+        return arr * times
